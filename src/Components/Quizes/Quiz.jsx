@@ -152,7 +152,7 @@ const Quiz = () => {
             <p className="text-lg text-[#182F51] mb-2 text-center">This is to certify that</p>
             <h2 className="text-3xl font-bold text-[#C0A34E] mb-2 text-center">{userName}</h2>
             <p className="text-lg text-[#182F51] mb-2 text-center">
-              has successfully completed the quiz
+              has completed the quiz
             </p>
             <p className="text-lg font-medium text-[#182F51] mb-2 text-center">
               Score: <span className="text-[#C0A34E]">{score} / {quizData.length}</span>
