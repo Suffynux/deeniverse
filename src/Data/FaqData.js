@@ -17,7 +17,7 @@ const faqsData = [
   {
     question: "What is the class timing and duration?",
     answer:
-      "We offer multiple time slots throughout the day. Each class typically lasts for 30 to 45 minutes depending on the course and student's level.",
+      "We offer multiple time slots throughout the day. Each class typically lasts for 30 to 45 minutes, depending on the course and the student's level.",
   },
 ];
 
