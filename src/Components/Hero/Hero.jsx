@@ -6,7 +6,7 @@ import Button from '../UI/Button.jsx';
 import HeaderImage from '../../assets/images/head-image.png';
 import { BookOpenCheck, Landmark, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
+import { SparklesText } from '../UI/sparkles-text.jsx';
 const Hero = () => {
   const [ayah, setAyah] = useState(null);
   const [isHovering, setIsHovering] = useState(false);
@@ -54,7 +54,11 @@ const Hero = () => {
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
             >
               <span className="bg-gradient-to-r from-[#C0A34E] to-[#fff] bg-clip-text text-transparent">
-                Discover Divine Wisdom
+                {/* Discover Divine Wisdom */}
+             
+
+<SparklesText colors={["#C0A34E", "#fff"]} className={"text-white"}>Discover Divine Wisdom</SparklesText>
+
               </span>
               <br />
               With Qur’an & Hadith
@@ -148,8 +152,170 @@ const Hero = () => {
           </motion.div>
         </Container>
       </section>
+   
+      <ConnectSection />
+
     </FullWidth>
   );
 };
 
 export default Hero;
+``
+
+
+
+
+const ConnectSection = () => {
+  return (
+    <section
+      style={{
+        background: "#FFF5ED", // very light cream, adjust as needed
+        padding: "4rem 1rem 5rem 1rem",
+        minHeight: "100vh",
+        fontFamily: "'Montserrat', 'Georgia', serif",
+      }}
+    >
+      {/* Headline */}
+      <h1
+        style={{
+          textAlign: "center",
+          color: "#182f51", // deep brown/red, adjust as needed for your brand
+          fontSize: "3rem",
+          fontFamily: "'Merriweather', serif",
+          marginBottom: "2rem",
+          fontWeight: 700,
+        }}
+      >
+        Connect Directly to the Words of <br /> Allah Beyond Translation
+      </h1>
+
+      {/* Cards Row */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "2rem",
+          flexWrap: "wrap",
+          maxWidth: 1200,
+          margin: "0 auto",
+        }}
+      >
+        {/* Card 1 */}
+        <div
+          style={{
+            background: "#29120D", // dark brown
+            color: "#fff",
+            borderRadius: "18px",
+            padding: "2.5rem 2rem 2rem 2rem",
+            flex: "1 1 360px",
+            maxWidth: 480,
+            minWidth: 320,
+            boxShadow: "0 4px 28px rgba(41,18,13,0.09)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <h2
+            style={{
+              fontFamily: "'Merriweather', serif",
+              fontSize: "2.2rem",
+              textAlign: "center",
+              fontWeight: 700,
+              margin: "0 0 1rem 0",
+            }}
+          >
+            Start your journey <br /> through the Quran.
+          </h2>
+          <div
+            style={{
+              fontSize: "1rem",
+              fontWeight: 600,
+              textAlign: "center",
+              marginBottom: "1.7rem",
+            }}
+          >
+            Regardless of your age, busy schedule or Arabic proficiency.
+          </div>
+          <a
+            href="#"
+            style={{
+              background: "#DE4B17",
+              color: "#fff",
+              padding: "0.9em 2em",
+              borderRadius: 10,
+              fontWeight: 700,
+              fontSize: "1.1rem",
+              textDecoration: "none",
+              transition: "background .2s",
+              boxShadow: "0 2px 12px #0002",
+              marginBottom: "1.5rem",
+              display: "inline-block",
+            }}
+          >
+            Learn online &rarr;
+          </a>
+        </div>
+        {/* Card 2 */}
+        <div
+          style={{
+            background: "#FAE3CB", // light beige
+            color: "#7B2C14", // deep brown/red
+            borderRadius: "18px",
+            padding: "2.5rem 2rem 2rem 2rem",
+            flex: "1 1 360px",
+            maxWidth: 480,
+            minWidth: 320,
+            boxShadow: "0 4px 28px rgba(41,18,13,0.06)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          <h2
+            style={{
+              fontFamily: "'Merriweather', serif",
+              fontSize: "2.2rem",
+              textAlign: "center",
+              fontWeight: 700,
+              margin: "0 0 1rem 0",
+            }}
+          >
+            Experience our <br /> live events.
+          </h2>
+          <div
+            style={{
+              fontSize: "1rem",
+              fontWeight: 600,
+              textAlign: "center",
+              marginBottom: "1.7rem",
+              color: "#000",
+            }}
+          >
+            Witness the transformative power of the Quran, led by Ustadh <br /> Nouman Ali Khan.
+          </div>
+          <a
+            href="#"
+            style={{
+              background: "#DE4B17",
+              color: "#fff",
+              padding: "0.9em 2em",
+              borderRadius: 10,
+              fontWeight: 700,
+              fontSize: "1.1rem",
+              textDecoration: "none",
+              transition: "background .2s",
+              boxShadow: "0 2px 12px #0002",
+              marginBottom: "1.5rem",
+              display: "inline-block",
+            }}
+          >
+            View upcoming events &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
