@@ -46,6 +46,7 @@ const Navbar = () => {
     { name: "Contact Us", path: "/contact-us" },
     { name: "Quizzes", path: "/quizzes" },
     { name: "Prayer Times", path: "/prayer-times" },
+    { name: "More Resources", path: "/more-resources" },
   ];
 
   // quizes pathname

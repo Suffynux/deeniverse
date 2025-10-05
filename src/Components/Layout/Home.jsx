@@ -20,7 +20,7 @@ const Home = () => {
         <LandingCoures/>
         <FaqSection/>
         {/* Footer */}
-        <Quiz/>
+        {/* <Quiz/> */}
         <Footer />
         </div>
   )
