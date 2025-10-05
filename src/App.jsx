@@ -42,16 +42,17 @@ const router = createBrowserRouter([
     element: <Quiz />,
   },
   {
-    path: '/gemini-ai',
+    path: '/deeniverse-ai',
     element: <GeminiAi />
   },
-   {
-    path: "blogs",
+  {
+    path: '/blogs',
     element: <Blog />
-   },{
-  path: "blog/:id",
+  },
+  {
+    path: '/blogs/:slug',
     element: <BlogDetail />
-   }
+  }
 
 ])
 

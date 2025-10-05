@@ -26,7 +26,7 @@ const Footer = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-blue-800 to-slate-800 opacity-90"></div>
 
       {/* Main Footer Content - Changed to 4 columns */}
-      <div className="relative max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-10 border-t border-slate-700">
+  <div className="relative max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 lg:grid-cols-5 gap-10 border-t border-slate-700">
         {/* Left Section */}
         <div className="space-y-4">
           <h2 className="text-3xl font-bold text-orange-400">Deeniverse Academy</h2>
@@ -141,6 +141,45 @@ const Footer = () => {
                   Join our free WhatsApp groups to start learning today! No registration required.
                 </p>
               </div>
+            </li>
+          </ul>
+        </div>
+
+        {/* Helpful Resources */}
+        <div className="space-y-3">
+          <h3 className="text-xl font-semibold text-orange-400">Helpful Resources</h3>
+          <ul className="text-gray-300 space-y-2">
+            <li>
+              <Link
+                to="/deeniverse-ai"
+                className="block py-1 px-2 -mx-2 rounded hover:text-orange-400 hover:bg-white/5 transition-all duration-200"
+              >
+                Deeniverse AI Assistant
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/blogs"
+                className="block py-1 px-2 -mx-2 rounded hover:text-orange-400 hover:bg-white/5 transition-all duration-200"
+              >
+                Blog Articles
+              </Link>
+            </li>
+            <li>
+              <a
+                href="/blogs#blog-grid"
+                className="block py-1 px-2 -mx-2 rounded hover:text-orange-400 hover:bg-white/5 transition-all duration-200"
+              >
+                Latest Posts
+              </a>
+            </li>
+            <li>
+              <a
+                href="/quizzes"
+                className="block py-1 px-2 -mx-2 rounded hover:text-orange-400 hover:bg-white/5 transition-all duration-200"
+              >
+                Islamic Quizzes
+              </a>
             </li>
           </ul>
         </div>

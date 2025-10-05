@@ -410,7 +410,7 @@ const Navbar = () => {
   // New array for More Resources dropdown items
   const moreResources = [
     // Paths are currently empty strings as requested
-    { id: 1, title: "AI Assistant", path: "/gemini-ai" },
+    { id: 1, title: "AI Assistant", path: "/deeniverse-ai" },
     { id: 2, title: "Blogs", path: "/blogs" },
   ];
 
