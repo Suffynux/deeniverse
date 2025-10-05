@@ -8,6 +8,9 @@ import CourseDetail from './Components/Our Courses/CourseDetail'
 import PrayerTimes from './Components/Prayer/PrayerTimes'
 import Quiz from './Components/Quizes/Quiz'
 import { SmoothCursor } from './Components/UI/smooth-cursor'
+import GeminiAi from './Components/Asistant/GeminiAi'
+import Blog from './Components/Blogs/Blog'
+import BlogDetail from './Components/Blogs/BlogDetail'
 
 const router = createBrowserRouter([
   {
@@ -38,6 +41,17 @@ const router = createBrowserRouter([
     path: '/quizzes',
     element: <Quiz />,
   },
+  {
+    path: '/gemini-ai',
+    element: <GeminiAi />
+  },
+   {
+    path: "blogs",
+    element: <Blog />
+   },{
+  path: "blog/:id",
+    element: <BlogDetail />
+   }
 
 ])
 

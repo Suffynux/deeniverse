@@ -1,54 +1,66 @@
-const quizData = [
+const quizzes = [
   {
-    question: "Which Surah is the longest in the Quran?",
-    options: ["Surah Baqarah", "Surah Yaseen", "Surah Fatiha", "Surah Rahman"],
-    correct: 0
+    title: "The Seerah of Prophet Muhammad ﷺ",
+    description: "Test your knowledge on the life of the final Messenger.",
+    questions: [
+      {
+        question: "In which city was Prophet Muhammad ﷺ born?",
+        options: ["Madinah", "Makkah", "Jerusalem", "Ta'if"],
+        correctOption: 1,
+      },
+      {
+        question: "What was the name of the Prophet's ﷺ first wife?",
+        options: ["Aisha (RA)", "Fatimah (RA)", "Khadijah (RA)", "Hafsa (RA)"],
+        correctOption: 2,
+      },
+      {
+        question: "What is the name of the cave where the Prophet ﷺ received his first revelation?",
+        options: ["Cave of Thawr", "Cave of Hira", "Cave of Uhud", "Cave of Safa"],
+        correctOption: 1,
+      },
+      {
+        question: "The migration from Makkah to Madinah is known as the:",
+        options: ["Hijrah", "Isra", "Mi'raj", "Hajj"],
+        correctOption: 0,
+      },
+      {
+        question: "Who was the Prophet's ﷺ companion during the Hijrah?",
+        options: ["Umar ibn al-Khattab (RA)", "Ali ibn Abi Talib (RA)", "Uthman ibn Affan (RA)", "Abu Bakr as-Siddiq (RA)"],
+        correctOption: 3,
+      },
+    ],
   },
   {
-    question: "How many verses are in Surah Al-Fatiha?",
-    options: ["5", "6", "7", "8"],
-    correct: 2
+    title: "Pillars of Islam",
+    description: "A quiz on the fundamental five pillars of the Islamic faith.",
+    questions: [
+      {
+        question: "What is the first pillar of Islam?",
+        options: ["Salat (Prayer)", "Zakat (Charity)", "Shahadah (Faith)", "Sawm (Fasting)"],
+        correctOption: 2,
+      },
+      {
+        question: "How many times a day are Muslims required to perform Salat (prayer)?",
+        options: ["3", "5", "7", "1"],
+        correctOption: 1,
+      },
+      {
+        question: "The pillar of Zakat refers to:",
+        options: ["Fasting during Ramadan", "The pilgrimage to Makkah", "Obligatory charity", "Daily prayers"],
+        correctOption: 2,
+      },
+      {
+        question: "During which Islamic month is Sawm (fasting) observed?",
+        options: ["Shawwal", "Dhul Hijjah", "Muharram", "Ramadan"],
+        correctOption: 3,
+      },
+      {
+        question: "What is the final pillar of Islam, which is a pilgrimage to Makkah?",
+        options: ["Umrah", "Hajj", "Ziyarah", "Tawaf"],
+        correctOption: 1,
+      },
+    ],
   },
-  {
-    question: "In which city was the Prophet Muhammad (ﷺ) born?",
-    options: ["Madinah", "Makkah", "Taif", "Jerusalem"],
-    correct: 1
-  },
-  {
-    question: "Which angel brought revelation to the Prophet Muhammad (ﷺ)?",
-    options: ["Mikail", "Israfil", "Jibreel", "Izraeel"],
-    correct: 2
-  },
-  {
-    question: "How many pillars of Islam are there?",
-    options: ["3", "4", "5", "6"],
-    correct: 2
-  },
-  {
-    question: "Which Surah is known as 'The Heart of the Quran'?",
-    options: ["Surah Mulk", "Surah Yaseen", "Surah Ikhlas", "Surah Rahman"],
-    correct: 1
-  },
-  {
-    question: "During which month is fasting obligatory for Muslims?",
-    options: ["Muharram", "Ramadan", "Shawwal", "Dhul Hijjah"],
-    correct: 1
-  },
-  {
-    question: "Which Prophet built the Kaaba with his son?",
-    options: ["Prophet Ibrahim (AS)", "Prophet Ismail (AS)", "Prophet Adam (AS)", "Prophet Nuh (AS)"],
-    correct: 0
-  },
-  {
-    question: "Which Surah has only one verse?",
-    options: ["Surah Kawthar", "Surah Nasr", "Surah Ikhlas", "Surah Asr"],
-    correct: 0
-  },
-  {
-    question: "What is the name of the night when the Quran was first revealed?",
-    options: ["Laylat al-Miraj", "Laylat al-Qadr", "Laylat al-Bara’ah", "Laylat al-Isra"],
-    correct: 1
-  }
 ];
 
-export default quizData;
+export default quizzes;
