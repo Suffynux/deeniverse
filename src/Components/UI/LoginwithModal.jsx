@@ -1,4 +1,4 @@
-import Button from "./Button"
+import Button from "../UI/Button"
 import {
   Dialog,
   DialogClose,
@@ -9,10 +9,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-// import { Button } from "@/components/ui/button"
-// import Button from "@/components/ui/button"
+import { Input } from "../UI/input"
+import { Label } from "../UI/label"
 import {
   Card,
   CardAction,
@@ -21,7 +19,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "../UI/card"
+import { cn } from "../../lib/utils"
 
 export function DialogDemo() {
   return (
