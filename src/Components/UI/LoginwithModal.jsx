@@ -19,7 +19,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "./card"
+} from "./card.jsx"
 import { cn } from "../../lib/utils"
 
 export function DialogDemo() {
