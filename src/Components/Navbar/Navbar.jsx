@@ -13,7 +13,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from "../UI/navigation-menu";
 import { SparklesText } from "../UI/sparkles-text";
 import { ShinyButton } from "../UI/shiny-button";
 
