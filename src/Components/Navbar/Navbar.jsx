@@ -17,20 +17,9 @@ import {
 import { SparklesText } from "../UI/sparkles-text";
 import { ShinyButton } from "../UI/shiny-button";
 
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../UI/dialog"
-import { Input } from "../UI/input"
-import { Label } from "../UI/label"
+
 import Button from "../UI/Button";
-import { CardDemo } from "../UI/LoginwithModal";
+
 
 
 const Navbar = () => {
