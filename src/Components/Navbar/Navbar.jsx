@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, NavLink, useParams } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
 import logo from "../../assets/images/logo.png";
 import Container from "../Layout/Container";
 // import Button from "../UI/Button";
@@ -37,7 +37,8 @@ const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false); // kept for parity (not required by shadcn menu)
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarDropdownOpen, setSidebarDropdownOpen] = useState(false);
-  const [bannerVisible, setBannerVisible] = useState(true);
+  const [bannerVisible, setBannerVisible] = useState(false);
+  const { scrollYProgress } = useScroll();
 
   const navItemVariants = {
     hidden: { opacity: 0, y: -10 },
@@ -72,154 +73,172 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Announcement Banner */}
-      {/* <AnimatePresence>
-        {bannerVisible && (
-          <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
-            transition={{ duration: 0.4 }}
-            className="fixed top-0 left-0 w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white z-50 shadow-md"
+ 
+    <AnimatePresence>
+  {bannerVisible && (
+    <motion.div
+      initial={{ opacity: 0, y: -40 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -40 }}
+      transition={{ duration: 0.35 }}
+      className="fixed top-0 left-0 w-full bg-gradient-to-r from-amber-400 to-amber-600 text-white z-50 shadow-sm"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between">
+        {/* Message */}
+        <div className="flex items-center min-w-0">
+          <span className="text-xs sm:text-sm lg:text-base font-medium truncate tracking-wide">
+            📖 Enroll in our Free Tafseer-ul-Quran Course Today!
+          </span>
+        </div>
+
+        {/* Actions */}
+        <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+          <a
+            href="https://api.whatsapp.com/send/?phone=923265566969&text&type=phone_number&app_absent=0"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white text-amber-600 font-medium px-3 py-1.5 sm:px-4 sm:py-2 rounded-md text-xs sm:text-sm hover:bg-gray-100 transition-colors duration-200"
           >
-            <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2 flex flex-row items-center justify-between gap-2 sm:gap-4">
-              <div className="flex items-center gap-1 sm:gap-2 flex-1 min-w-0">
-                <span className="text-xs sm:text-sm lg:text-base font-semibold truncate">
-                  📖 Join Our Free Tafseer-ul-Quran Course Today!
-                </span>
-              </div>
-              <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-                <a
-                  href="https://api.whatsapp.com/send/?phone=923265566969&text&type=phone_number&app_absent=0"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white text-amber-600 font-semibold px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm hover:bg-gray-100 transition-colors duration-200 whitespace-nowrap"
-                >
-                  Join Now
-                </a>
-                <button
-                  onClick={() => setBannerVisible(false)}
-                  className="text-white hover:text-gray-200 text-lg sm:text-xl focus:outline-none flex-shrink-0 p-1"
-                  aria-label="Close banner"
-                >
-                  ×
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence> */}
+            Join Now
+          </a>
+          <button
+            onClick={() => setBannerVisible(false)}
+            className="text-white hover:text-gray-200 text-lg sm:text-xl focus:outline-none p-1"
+            aria-label="Close banner"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
 
       <Container>
         <motion.header
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className={`text-white flex justify-between items-center py-4 ${
-            bannerVisible ? "mt-16 sm:mt-14" : ""
+          className={`fixed left-0 right-0 z-40 text-white bg-gray-900/95 backdrop-blur ${
+            bannerVisible ? "top-[40px] sm:top-[36px]" : "top-0"
           }`}
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            <Link to="/">
-              <img
-                src={logo}
-                alt="Deeniverse Academy"
-                className="max-w-[60px] md:max-w-[100px] h-auto"
-              />
-            </Link>
-          </motion.div>
-
-          {/* Desktop Navigation - migrated to shadcn NavigationMenu */}
-          <div className="flex justify-between items-center gap-8 md:gap-16">
-            <nav className="hidden md:flex items-center">
-              {/* disable viewport so dropdowns position relative to their NavigationMenuItem */}
-              <NavigationMenu viewport={false}>
-                <NavigationMenuList>
-                  {/* Render simple links for top-level nav items */}
-                  {navItems.map((item) => (
-                    <NavigationMenuItem key={item.name}>
-                      <NavigationMenuLink asChild>
-                        <NavLink
-                          to={item.path}
-                          className={({ isActive }) =>
-                            `px-3 py-2 text-lg font-medium no-underline ${
-                              isActive
-                                ? "text-amber-500"
-                                : "text-white hover:text-amber-500"
-                            }`
-                          }
-                        >
-                          {item.name.toLowerCase() === "quizzes" || item.path === "/quizzes" ? (
-                            <SparklesText
-                              colors={{ first: "#f59e0b", second: "#f43f5e" }}
-                              className=" text-md  "
-                            >
-                              {item.name}
-                            </SparklesText>
-                          ) : (
-                            item.name
-                          )}
-                        </NavLink>
-                      </NavigationMenuLink>
-                    </NavigationMenuItem>
-                  ))}
-
-                  {/* Courses dropdown implemented with shadcn menu */}
-                  <NavigationMenuItem className="relative">
-                    <NavigationMenuTrigger
-                      className={`${navigationMenuTriggerStyle()} text-white bg-transparent !shadow-none focus:outline-none focus:ring-0`}
-                    >
-                      Our Courses
-                    </NavigationMenuTrigger>
-                    {/* absolute positioning aligns the dropdown directly under the trigger */}
-                    <NavigationMenuContent className="!absolute left-0 top-full mt-2 !bg-transparent !shadow-none !ring-0 p-0 z-50">
-                      <ul className="w-64 rounded-xl bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 p-2 space-y-1 shadow-lg">
-                        {courses.map((course) => (
-                          <li key={course.id}>
-                            <NavigationMenuLink asChild>
-                              <Link
-                                to={course.path}
-                                className="block px-4 py-3 text-sm font-medium text-gray-200 rounded-lg
-                                           hover:bg-amber-400 hover:text-gray-900 transition-all duration-200 ease-in-out
-                                           hover:shadow-md hover:scale-[1.02] active:scale-[0.98] outline-none focus:outline-none focus:ring-0 bg-transparent"
-                              >
-                                {course.title}
-                              </Link>
-                            </NavigationMenuLink>
-                          </li>
-                        ))}
-                      </ul>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                </NavigationMenuList>
-              </NavigationMenu>
-            </nav>
-
-            <Dialog>
-              <DialogTrigger asChild>
-                <ShinyButton>Get Started</ShinyButton>
-              </DialogTrigger>
-
-              <DialogContent className="sm:max-w-[520px]">
-                {/* show professional card form inside modal */}
-                <CardDemo />
-              </DialogContent>
-            </Dialog>
-
-            <button
-              className="md:hidden text-2xl text-white"
-              onClick={() => setSidebarOpen(true)}
-              aria-label="Open menu"
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center py-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
             >
-              ☰
-            </button>
+              <Link to="/">
+                <img
+                  src={logo}
+                  alt="Deeniverse Academy"
+                  className="max-w-[30px] md:max-w-[75px] h-auto"
+                />
+              </Link>
+            </motion.div>
+
+            {/* Desktop Navigation - migrated to shadcn NavigationMenu */}
+            <div className="flex justify-between items-center gap-8 md:gap-16">
+              <nav className="hidden md:flex items-center">
+                {/* disable viewport so dropdowns position relative to their NavigationMenuItem */}
+                <NavigationMenu viewport={false}>
+                  <NavigationMenuList>
+                    {/* Render simple links for top-level nav items */}
+                    {navItems.map((item) => (
+                      <NavigationMenuItem key={item.name}>
+                        <NavigationMenuLink asChild>
+                          <NavLink
+                            to={item.path}
+                            className={({ isActive }) =>
+                              `px-3 py-2 text-lg font-medium no-underline ${
+                                isActive
+                                  ? "text-amber-500"
+                                  : "text-white hover:text-amber-500"
+                              }`
+                            }
+                          >
+                            {item.name.toLowerCase() === "quizzes" || item.path === "/quizzes" ? (
+                              <SparklesText
+                                colors={{ first: "#f59e0b", second: "#f43f5e" }}
+                                className=" text-md  "
+                              >
+                                {item.name}
+                              </SparklesText>
+                            ) : (
+                              item.name
+                            )}
+                          </NavLink>
+                        </NavigationMenuLink>
+                      </NavigationMenuItem>
+                    ))}
+
+                    {/* Courses dropdown implemented with shadcn menu */}
+                    <NavigationMenuItem className="relative">
+                      <NavigationMenuTrigger
+                        className={`${navigationMenuTriggerStyle()} text-white bg-transparent !shadow-none focus:outline-none focus:ring-0`}
+                      >
+                        Our Courses
+                      </NavigationMenuTrigger>
+                      {/* absolute positioning aligns the dropdown directly under the trigger */}
+                      <NavigationMenuContent className="!absolute left-0 top-full mt-2 !bg-transparent !shadow-none !ring-0 p-0 z-50">
+                        <ul className="w-64 rounded-xl bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 p-2 space-y-1 shadow-lg">
+                          {courses.map((course) => (
+                            <li key={course.id}>
+                              <NavigationMenuLink asChild>
+                                <Link
+                                  to={course.path}
+                                  className="block px-4 py-3 text-sm font-medium text-gray-200 rounded-lg
+                                             hover:bg-amber-400 hover:text-gray-900 transition-all duration-200 ease-in-out
+                                             hover:shadow-md hover:scale-[1.02] active:scale-[0.98] outline-none focus:outline-none focus:ring-0 bg-transparent"
+                                >
+                                  {course.title}
+                                </Link>
+                              </NavigationMenuLink>
+                            </li>
+                          ))}
+                        </ul>
+                 
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  </NavigationMenuList>
+                </NavigationMenu>
+              </nav>
+
+              <Dialog>
+                <DialogTrigger asChild >
+              
+                </DialogTrigger>
+
+                <DialogContent className="sm:max-w-[520px]">
+                  {/* show professional card form inside modal */}
+                  <CardDemo />
+                </DialogContent>
+              </Dialog>
+
+              <button
+                className="md:hidden text-2xl text-white"
+                onClick={() => setSidebarOpen(true)}
+                aria-label="Open menu"
+              >
+                ☰
+              </button>
+            </div>
           </div>
         </motion.header>
+
+        {/* Scroll Progress Bar */}
+        <motion.div
+          className={`fixed left-0 right-0 h-1 bg-amber-500 origin-left z-50 ${
+            bannerVisible ? "top-[100px] sm:top-[96px]" : "top-[76px]"
+          }`}
+          style={{ scaleX: scrollYProgress }}
+        />
       </Container>
+
+     {/* Spacer to prevent content from being hidden behind fixed header */}
+     <div className={`${bannerVisible ? "pt-[128px] sm:pt-[120px]" : "pt-[64px]"}`}></div>
 
       {/* Mobile Sidebar (unchanged) */}
       <AnimatePresence>
@@ -366,5 +385,17 @@ export function DialogDemo() {
         </DialogContent>
       </form>
     </Dialog>
+  )
+} 
+
+
+export function ScrollProgressDemo() {
+  return (
+    <div className="z-10 rounded-lg p-4">
+      <ScrollProgress className="top-[65px]" />
+      <h2 className="pb-4 font-bold">
+        Note: The scroll progress is shown below the navbar of the page.
+      </h2>
+    </div>
   )
 }
