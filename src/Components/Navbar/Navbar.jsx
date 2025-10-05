@@ -26,9 +26,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+} from "../UI/dialog"
+import { Input } from "../UI/input"
+import { Label } from "../UI/label"
 import Button from "../UI/Button";
 import { CardDemo } from "../UI/LoginwithModal";
 
