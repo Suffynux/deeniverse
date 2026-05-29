@@ -333,10 +333,10 @@ const ContactUs = () => {
       icon: <Mail className="w-8 h-8" />,
       title: 'Email',
       subtitle: 'Detailed Inquiries',
-      info: 'support@deeniverse.com',
+      info: 'info@deeniverse.com',
       description: 'For comprehensive questions and feedback',
       action: 'Send Email',
-      link: 'mailto:support@deeniverse.com',
+      link: 'mailto:info@deeniverse.com',
       bg: 'bg-[#182F51]',
       border: 'border-[#182F51]/50'
     },
